@@ -1,24 +1,21 @@
 #include "SomadoraUnica.h"
+#include "Algarismos.h"
 
-void SomadoraUnica::setValores(int x, int y, int base) {
-    this -> fatorX = x;
-    this -> fatorY = y;
-    this -> base = base;
+Algarismos algarismos;
 
-    this -> somar();
+void SomadoraUnica::somar(char x, char y, char carga, int base) {
+    int soma = algarismos.valorDe(x) +
+                algarismos.valorDe(y) +
+                algarismos.valorDe(carga);
+
+    this -> carga = algarismos.caracterDe(soma / base);
+    this -> soma = algarismos.caracterDe(soma % base);
 }
 
-void SomadoraUnica::somar() {
-    int soma = fatorX + fatorY;
-
-    this -> carga = soma / base;
-    this -> soma = soma % base;
-}
-
-int SomadoraUnica::getSoma() {
+char SomadoraUnica::getSoma() {
     return this -> soma;
 }
 
-int SomadoraUnica::getCarga() {
+char SomadoraUnica::getCarga() {
     return this -> carga;
 }

@@ -50,6 +50,10 @@ std::string Operacao::getFatorY() {
     return this -> fatorY;
 }
 
+int Operacao::getBase() {
+    return this -> base;
+}
+
 char Operacao::getOperador() {
     return this -> operador;
 }

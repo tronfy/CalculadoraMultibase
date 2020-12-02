@@ -7,6 +7,8 @@
 class Utils {
 public:
     int toInt(std::string stringNumber);
+    char toChar(int number);
+    void matchNumberDigits(std::string &number1, std::string &number2);
 };
 
 

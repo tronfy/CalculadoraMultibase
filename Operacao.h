@@ -21,6 +21,7 @@ public:
     }
     std::string getFatorX();
     std::string getFatorY();
+    int getBase();
     char getOperador();
 };
 

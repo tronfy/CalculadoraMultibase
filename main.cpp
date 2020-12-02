@@ -2,9 +2,11 @@
 #include <sstream>
 
 #include "Operacao.h"
+#include "Calculator.h"
 
 int main() {
     try {
+        Calculator calculator;
 
         std::cout << "Calculadora de bases\nProjeto II - TopiOO\n" << std::endl;
 
@@ -22,13 +24,13 @@ int main() {
         std::cin >> opString;
 
         Operacao operacao(opString, base);
+        std::cout << "Resposta: " << calculator.calculate(operacao);
 
-        std::string fatorX = operacao.getFatorX();
-        std::string fatorY = operacao.getFatorY();
+//        std::cout << "fatorX: " << operacao.getFatorX() << std::endl;
+//        std::cout << "operador: " << operacao.getOperador() << std::endl;
+//        std::cout << "fatorY: " << operacao.getFatorY() << std::endl;
 
-        std::cout << "fatorX: " << operacao.getFatorX() << std::endl;
-        std::cout << "operador: " << operacao.getOperador() << std::endl;
-        std::cout << "fatorY: " << operacao.getFatorY() << std::endl;
+
 
         return 0;
 

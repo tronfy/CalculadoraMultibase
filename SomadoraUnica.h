@@ -4,12 +4,12 @@
 
 class SomadoraUnica {
 private:
-    int fatorX, fatorY, base, soma, carga;
-    void somar();
+    int base;
+    char soma, carga;
 public:
-    void setValores(int x, int y, int base);
-    int getSoma();
-    int getCarga();
+    void somar(char x, char y, char carga, int base);
+    char getSoma();
+    char getCarga();
 };
 
 
