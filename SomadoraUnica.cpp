@@ -9,18 +9,10 @@ void SomadoraUnica::setValores(int x, int y, int base) {
 }
 
 void SomadoraUnica::somar() {
-    int soma = fatorX;
+    int soma = fatorX + fatorY;
 
-    for (int i = 0; i < fatorY; i++) {
-        if (soma < base) {
-            soma++;
-        } else {
-            soma = 0;
-            carga++;
-        }
-    }
-
-    this -> soma = soma;
+    this -> carga = soma / base;
+    this -> soma = soma % base;
 }
 
 int SomadoraUnica::getSoma() {
