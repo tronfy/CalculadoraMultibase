@@ -20,6 +20,9 @@ std::string Calculator::calculate(Operacao operation)
         case '-':
             break;
         case '*':
+            resp = multiplication(operation.getFatorX(),
+                                  operation.getFatorY(),
+                                  operation.getBase());
             break;
         case '/':
             break;
@@ -50,6 +53,40 @@ std::string Calculator::sum(std::string number1, std::string number2, int base)
     if(carga != '0')
         result.insert(result.begin(), carga);
 
+    return result;
+}
+
+std::string Calculator::multiplication(std::string number1, std::string number2, int base)
+{
+    std::string result = "0";
+
+    int multiplierOfLine = 0;
+    std::string lineOfResult;
+    for(int i = number2.length() - 1; i >= 0; i--)
+    {
+        lineOfResult = multiplyNumberToDigit(number1, number2[i], base);
+        lineOfResult.insert(lineOfResult.end(), multiplierOfLine, '0');         // == multiplicar por 10 com base na linha
+
+        result = sum(result, lineOfResult, base);
+        multiplierOfLine++;
+    }
+
+
+    return result;
+}
+
+std::string Calculator::multiplyNumberToDigit(std::string number1, char number2, int base)
+{
+    std::string result;
+    char carga = '0';
+    for(int i = number1.length() -1; i >= 0; i--)
+    {
+        int multiplicationOfTwoNumbers = Algarismos::valorDe(number1[i]) * Algarismos::valorDe(number2) + Algarismos::valorDe(carga);
+        result.insert(result.begin(), Algarismos::caracterDe(multiplicationOfTwoNumbers%base));
+        carga = Algarismos::caracterDe(multiplicationOfTwoNumbers/base);
+    }
+    if(carga != '0')
+        result.insert(result.begin(), carga);
 
     return result;
 }

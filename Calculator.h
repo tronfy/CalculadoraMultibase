@@ -7,7 +7,8 @@ class Calculator {
 private:
     std::string sum(std::string number1, std::string number2, int base);
     int subtraction(std::string number1, std::string number2, int base);
-    int multiplication(std::string number1, std::string number2, int base);
+    std::string multiplication(std::string number1, std::string number2, int base);
+    std::string multiplyNumberToDigit(std::string number1, char number2, int base);
     float division(std::string number1, std::string number2, int base);
 
 public:
