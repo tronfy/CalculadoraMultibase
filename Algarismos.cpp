@@ -1,4 +1,3 @@
-#include <cstdio>
 #include <cctype>
 #include "Algarismos.h"
 
