@@ -4,27 +4,31 @@
 
 #include "Somadora.h"
 #include "Multiplicadora.h"
+#include "Subtradora.h"
 
 std::string Calculator::calculate(Operacao op)
 {
     std::string resp = "0";
 
-    Somadora s;
-    Multiplicadora m;
+    Somadora soma;
+    Multiplicadora multiplicacao;
+	Subtradora subtracao;
 
     switch (op.getOperador())
     {
         case '+':
-            s.setValores(op.getFatorX(), op.getFatorY(), op.getBase());
-            resp = s.getResultado();
+            soma.setValores(op.getFatorX(), op.getFatorY(), op.getBase());
+            resp = soma.getResultado();
             break;
 
         case '-':
+			subtracao.setValores(op.getFatorX(), op.getFatorY(), op.getBase());
+			resp = subtracao.getResultado();
             break;
 
         case '*':
-            m.setValores(op.getFatorX(), op.getFatorY(), op.getBase());
-            resp = m.getResultado();
+            multiplicacao.setValores(op.getFatorX(), op.getFatorY(), op.getBase());
+            resp = multiplicacao.getResultado();
             break;
 
         case '/':

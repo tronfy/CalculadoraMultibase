@@ -22,7 +22,7 @@ int main() {
 
         std::cout << "Insira uma operacao (ex. 12+34):";
         std::cin >> opString;
-
+		
         Operacao operacao(opString, base);
         std::cout << "Resposta: " << calculator.calculate(operacao);
 

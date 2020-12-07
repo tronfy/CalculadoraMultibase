@@ -2,6 +2,9 @@
 #include <sstream>
 #include <iomanip>
 #include "Utils.h"
+#include "Algarismos.h"
+
+Algarismos algarismosUtil;
 
 int Utils::toInt(std::string stringNumber)
 {
@@ -40,5 +43,24 @@ void Utils::matchNumberDigits(std::string &number1, std::string &number2)
     {
         tempNum << std::setfill('0') << std::setw(number2.length()) << number1;
         number1 = tempNum.str();
+    }
+}
+
+int Utils::compareTwoString(std::string number1, std::string number2)
+{
+    int comparator = number1.length() - 
+    number2.length();
+    if(comparator != 0)
+        return comparator;
+		    
+	else{
+        for(int i=0; i<number1.length(); i++)
+        {
+            if(algarismosUtil.valorDe(number1[i]) > algarismosUtil.valorDe(number2[i]))
+                return 1;
+            if(algarismosUtil.valorDe(number1[i]) < algarismosUtil.valorDe(number2[i]))
+                return -1;
+        }
+        return 0;
     }
 }
