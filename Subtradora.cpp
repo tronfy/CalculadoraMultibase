@@ -12,7 +12,7 @@ void Subtradora::setValores(std::string fatorX, std::string fatorY, int base) {
     this -> fatorY= fatorY;
     this -> base = base;
 
-    this -> negativo = std::stoi(fatorX) < std::stoi(fatorY);
+    this -> negativo = utilsSub.toInt(fatorX) < utilsSub.toInt(fatorY);
 
     // garante que o fatorX é sempre maior que o fatorY
     if(utilsSub.compareTwoString(fatorX, fatorY) < 0)

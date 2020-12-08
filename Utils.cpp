@@ -8,19 +8,13 @@ Algarismos algarismosUtil;
 
 int Utils::toInt(std::string stringNumber)
 {
-    try {
-        int intNumber = 0;
+    int intNumber = 0;
 
-        std::stringstream converterFromString(stringNumber);
-
-        converterFromString >> intNumber;
-
-        return  intNumber;
+    for (int i = 0; i < stringNumber.length(); i++) {
+        intNumber += algarismosUtil.valorDe(stringNumber[i]);
     }
-    catch (char const* err) {
-        std::cout << "Erro: " << err << std::endl;
-        exit(1);
-    }
+
+    return intNumber;
 }
 
 char Utils::toChar(int number)
