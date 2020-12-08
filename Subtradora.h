@@ -12,6 +12,7 @@ public:
     void setValores(std::string fatorX, std::string fatorY, int base);
     std::string fatorX, fatorY, diferenca;
     int base;
+    bool negativo;
 };
 
 

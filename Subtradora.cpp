@@ -11,6 +11,9 @@ void Subtradora::setValores(std::string fatorX, std::string fatorY, int base) {
     this -> fatorX = fatorX;
     this -> fatorY= fatorY;
     this -> base = base;
+
+    this -> negativo = std::stoi(fatorX) < std::stoi(fatorY);
+
     // garante que o fatorX é sempre maior que o fatorY
     if(utilsSub.compareTwoString(fatorX, fatorY) < 0)
     {
@@ -65,7 +68,10 @@ void Subtradora::subtrair() {
         }
     }
 
-    this -> diferenca = result;
+    if (negativo)
+        this -> diferenca = "-";
+
+    this -> diferenca += result;
 }
 
 char Subtradora::subtracaoUnica(char number1, char number2)
