@@ -71,6 +71,8 @@ void Subtradora::subtrair() {
     if (negativo)
         this -> diferenca = "-";
 
+    result = utilsSub.removeTrailingZeroes(result);
+
     this -> diferenca += result;
 }
 

@@ -10,6 +10,7 @@ public:
     char toChar(int number);
     void matchNumberDigits(std::string &number1, std::string &number2);
     int compareTwoString(std::string number1, std::string number2);
+    std::string removeTrailingZeroes(std::string str);
 };
 
 

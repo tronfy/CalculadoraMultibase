@@ -64,3 +64,13 @@ int Utils::compareTwoString(std::string number1, std::string number2)
         return 0;
     }
 }
+
+std::string Utils::removeTrailingZeroes(std::string str) {
+    int i = 0;
+    while (str[i] == '0')
+        i++;
+
+    str.erase(0, i);
+
+    return str;
+}
