@@ -23,6 +23,13 @@ char Utils::toChar(int number)
     return stringNumber[0];
 }
 
+std::string Utils::toString(char caracter)
+{
+	std::string tempString;
+	tempString.insert(tempString.begin(), caracter);
+	return tempString;
+}
+
 void Utils::matchNumberDigits(std::string &number1, std::string &number2)
 {
     int commaPlace1, commaPlace2;
@@ -54,6 +61,13 @@ void Utils::matchNumberDigits(std::string &number1, std::string &number2)
 
     number1 = beforeComma1 + "," + afterComma1;
     number2 = beforeComma2 + "," + afterComma2;
+}
+
+std::string Utils::colocarZeros(std::string str, int qtdZeros)
+{
+	std::string a;
+	a = str + std::string(qtdZeros, '0');
+	return a;
 }
 
 void Utils::matchNumberDigitsBeforeComma(std::string &number1, std::string &number2)
@@ -117,6 +131,16 @@ std::string Utils::removeTrailingZeroes(std::string str) {
         i++;
 
     str.erase(0, i);
+
+    return str;
+}
+
+std::string Utils::removeLeadingZeroes(std::string str) {
+    int i = str.length() - 1;
+    while (str[i] == '0')
+        i--;
+
+    str.erase(str.length() - 1, i);
 
     return str;
 }

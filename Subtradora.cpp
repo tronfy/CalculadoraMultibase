@@ -11,6 +11,7 @@ void Subtradora::setValores(std::string fatorX, std::string fatorY, int base) {
     this -> fatorX = fatorX;
     this -> fatorY= fatorY;
     this -> base = base;
+	this -> diferenca = "";
 
     this -> negativo = utilsSub.compareTwoString(fatorX, fatorY) < 0;
     // garante que o fatorX é sempre maior que o fatorY

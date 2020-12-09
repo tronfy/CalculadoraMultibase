@@ -5,6 +5,7 @@
 #include "Somadora.h"
 #include "Multiplicadora.h"
 #include "Subtradora.h"
+#include "Divisora.h"
 
 std::string Calculator::calculate(Operacao op)
 {
@@ -13,6 +14,7 @@ std::string Calculator::calculate(Operacao op)
     Somadora soma;
     Multiplicadora multiplicacao;
 	Subtradora subtracao;
+	Divisora divisora;
 
     switch (op.getOperador())
     {
@@ -32,6 +34,8 @@ std::string Calculator::calculate(Operacao op)
             break;
 
         case '/':
+			divisora.setValores(op.getFatorX(), op.getFatorY(), op.getBase());
+			resp = divisora.getResultado();
             break;
 
         default:

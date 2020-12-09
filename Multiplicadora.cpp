@@ -40,7 +40,9 @@ void Multiplicadora::multiplicar() {
         multiplierOfLine++;
     }
 
-    this -> produto = adjustComma(result, fatorX);
+	result = adjustComma(result, fatorX);
+
+    this -> produto = utilsMulti.removeTrailingZeroes(result);
 }
 
 std::string Multiplicadora::multiplyNumberToDigit(std::string fatorX, char fatorY, int base)
@@ -70,5 +72,5 @@ std::string Multiplicadora::adjustComma(std::string result, std::string someFato
     result.erase(result.find(','));
     result.insert(result.length() - algarismoPosVirgula, ",");
 
-    return result;
+	return utilsMulti.removeLeadingZeroes(result);
 }
