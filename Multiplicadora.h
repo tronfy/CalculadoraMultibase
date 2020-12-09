@@ -13,6 +13,7 @@ private:
     int base;
     void multiplicar();
     std::string multiplyNumberToDigit(std::string fatorX, char fatorY, int base);
+    std::string adjustComma(std::string result, std::string someFator);
 };
 
 

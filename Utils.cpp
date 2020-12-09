@@ -25,23 +25,72 @@ char Utils::toChar(int number)
 
 void Utils::matchNumberDigits(std::string &number1, std::string &number2)
 {
-    std::stringstream tempNum;
+    int commaPlace1, commaPlace2;
+    std::string beforeComma1, beforeComma2, afterComma1, afterComma2;
+
+    commaPlace1 = number1.find(',');
+    commaPlace2 = number2.find(',');
+
+    if(commaPlace1 == -1) {
+        beforeComma1 = number1;
+        afterComma1 = '0';
+    }
+    else {
+        beforeComma1 = number1.substr(0, commaPlace1);
+        afterComma1 = number1.substr(commaPlace1 + 1, number1.length());
+    }
+
+    if(commaPlace2 == -1){
+        beforeComma2 = number2;
+        afterComma2 = '0';
+    }
+    else{
+        beforeComma2 = number2.substr(0, commaPlace2);
+        afterComma2 = number2.substr(commaPlace2+1, number2.length());
+    }
+
+    matchNumberDigitsBeforeComma(beforeComma1, beforeComma2);
+    matchNumberDigitsAfterComma(afterComma1, afterComma2);
+
+    number1 = beforeComma1 + "," + afterComma1;
+    number2 = beforeComma2 + "," + afterComma2;
+}
+
+void Utils::matchNumberDigitsBeforeComma(std::string &number1, std::string &number2)
+{
     int comparator = number1.length() - number2.length();
 
     if(comparator > 0)
     {
-        tempNum << std::setfill('0') << std::setw(number1.length()) << number2;
-        number2 = tempNum.str();
+        number2 = std::string(comparator, '0') + number2;
     }
     if(comparator < 0)
     {
-        tempNum << std::setfill('0') << std::setw(number2.length()) << number1;
-        number1 = tempNum.str();
+        comparator = comparator * -1;
+        number1 = std::string(comparator, '0') + number1;
+    }
+}
+
+void Utils::matchNumberDigitsAfterComma(std::string &number1, std::string &number2)
+{
+
+    int comparator = number1.length() - number2.length();
+
+    if(comparator > 0)
+    {
+        number2 = number2 + std::string(comparator, '0');
+    }
+    if(comparator < 0)
+    {
+        comparator = comparator * -1;
+        number1 = number1 + std::string(comparator, '0');
     }
 }
 
 int Utils::compareTwoString(std::string number1, std::string number2)
 {
+    matchNumberDigits(number1, number2);
+
     int comparator = number1.length() - 
     number2.length();
     if(comparator != 0)
@@ -50,6 +99,9 @@ int Utils::compareTwoString(std::string number1, std::string number2)
 	else{
         for(int i=0; i<number1.length(); i++)
         {
+            if(number1[i] == ',')
+                continue;
+
             if(algarismosUtil.valorDe(number1[i]) > algarismosUtil.valorDe(number2[i]))
                 return 1;
             if(algarismosUtil.valorDe(number1[i]) < algarismosUtil.valorDe(number2[i]))

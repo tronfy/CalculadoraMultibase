@@ -11,6 +11,9 @@ public:
     void matchNumberDigits(std::string &number1, std::string &number2);
     int compareTwoString(std::string number1, std::string number2);
     std::string removeTrailingZeroes(std::string str);
+private:
+    void matchNumberDigitsBeforeComma(std::string &number1, std::string &number2);
+    void matchNumberDigitsAfterComma(std::string &number1, std::string &number2);
 };
 
 

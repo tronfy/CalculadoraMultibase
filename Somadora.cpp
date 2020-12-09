@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Somadora.h"
 #include "Utils.h"
 #include "SomadoraUnica.h"
@@ -25,6 +26,12 @@ void Somadora::somar() {
     char carga = '0';
     for(int i = fatorX.length() - 1; i >= 0; i--)
     {
+        if(fatorX[i] == ',')
+        {
+            result.insert(result.begin(), ',');
+            continue;
+        }
+
         somadoraUnica.somar(fatorX[i],
                             fatorY[i],
                             carga,

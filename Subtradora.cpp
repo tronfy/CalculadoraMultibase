@@ -12,8 +12,7 @@ void Subtradora::setValores(std::string fatorX, std::string fatorY, int base) {
     this -> fatorY= fatorY;
     this -> base = base;
 
-    this -> negativo = utilsSub.toInt(fatorX) < utilsSub.toInt(fatorY);
-
+    this -> negativo = utilsSub.compareTwoString(fatorX, fatorY) < 0;
     // garante que o fatorX é sempre maior que o fatorY
     if(utilsSub.compareTwoString(fatorX, fatorY) < 0)
     {
@@ -43,7 +42,12 @@ void Subtradora::subtrair() {
 
     for(int i = fatorX.length() - 1; i >= 0; i--)
     {
-        //std::cout << fatorX << std::endl;
+        if(fatorX[i] == ',')
+        {
+            result.insert(result.begin(), ',');
+            continue;
+        }
+
         if(algarismosSub.valorDe(fatorX[i]) >= algarismosSub.valorDe(fatorY[i]))
         {
             result.insert(result.begin(), subtracaoUnica(fatorX[i], fatorY[i]));
@@ -58,10 +62,15 @@ void Subtradora::subtrair() {
             result.insert(result.begin(), algarismosSub.caracterDe(tempNumber1 - tempNumber2));
 
             int temp = i-1;
-            while(fatorX[temp] == '0')
+            while(fatorX[temp] == '0' or fatorX[temp] == ',')
             {
-                fatorX[temp] = algarismosSub.caracterDe(base - 1);
+                if(fatorX[temp] == ',')
+                {
+                    temp--;
+                    continue;
+                }
 
+                fatorX[temp] = algarismosSub.caracterDe(base - 1);
                 temp--;
             }
             fatorX[temp] = algarismosSub.caracterDe(algarismosSub.valorDe(fatorX[temp]) - 1);
