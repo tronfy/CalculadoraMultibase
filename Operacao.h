@@ -6,21 +6,23 @@
 
 class Operacao {
 private:
-    std::string opString;
     std::string fatorX, fatorY;
     int base;
+    bool xNegativo, yNegativo;
     char operador;
     void analisar();
 public:
-    explicit Operacao(std::string opString, int base) {
-        this -> opString = opString;
-        fatorX = fatorY = "";
+    explicit Operacao(std::string fatorX, std::string fatorY, char op, int base) {
+        this -> fatorX = fatorX;
+        this -> fatorY = fatorY;
         this -> base = base;
-        operador = '_';
+        operador = op;
         this -> analisar();
     }
     std::string getFatorX();
     std::string getFatorY();
+    char getSinalX();
+    char getSinalY();
     int getBase();
     char getOperador();
 };

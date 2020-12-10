@@ -6,6 +6,9 @@
 class Calculator {
 public:
     std::string calculate(Operacao op);
+private:
+    std::string resumoSoma(Operacao op, std::string x, std::string y, int base);
+	std::string resumoSubtracao(Operacao op, std::string x, std::string y, int base);
 };
 
 

@@ -4,25 +4,22 @@
 void Operacao::analisar() {
     std::size_t pos;
 
-    pos = opString.find('+');
-    operador = '+';
-    if (pos == std::string::npos) {
-        operador = '-';
-        pos = opString.find('-');
-    }
-    if (pos == std::string::npos) {
-        operador = '*';
-        pos = opString.find('*');
-    }if (pos == std::string::npos) {
-        operador = '/';
-        pos = opString.find('/');
-    }
-    if (pos == std::string::npos) {
-        throw "Operacao invalida";
+    this -> xNegativo = false;
+    this -> yNegativo = false;
+
+    if (fatorX[0] == '-') {
+        xNegativo = true;
+        fatorX.erase(0, 1);
+    } else if (fatorX[0] == '+') {
+        fatorX.erase(0, 1);
     }
 
-    std::string fatorX = opString.substr(0, pos);
-    std::string fatorY = opString.substr(pos+1);
+    if (fatorY[0] == '-') {
+        yNegativo = true;
+        fatorY.erase(0, 1);
+    } else if (fatorY[0] == '+') {
+        fatorY.erase(0, 1);
+    }
 
     for (char chr : fatorX) {
         if(chr == ',' || chr == '.')
@@ -49,11 +46,25 @@ void Operacao::analisar() {
 }
 
 std::string Operacao::getFatorX() {
-    return this -> fatorX;
+	return this -> fatorX;
+    // return this -> fatorX.substr(1, fatoX.length());
 }
 
 std::string Operacao::getFatorY() {
-    return this -> fatorY;
+	return this -> fatorY;
+    // return this -> fatorY.substr(1, fatorY.length());
+}
+
+char Operacao::getSinalX() {
+    if (this -> xNegativo)
+        return '-';
+    else return '+';
+}
+
+char Operacao::getSinalY() {
+    if (this -> yNegativo)
+        return '-';
+    else return '+';
 }
 
 int Operacao::getBase() {

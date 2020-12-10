@@ -83,7 +83,7 @@ void Subtradora::subtrair() {
 
     result = utilsSub.removeTrailingZeroes(result);
 
-    this -> diferenca += result;
+    this -> diferenca = result;
 }
 
 char Subtradora::subtracaoUnica(char number1, char number2)
