@@ -29,7 +29,9 @@ void Divisora::dividir() {
     std::string divisor = fatorY;
     std::string tempDiv;
     char semiQuociente;
-	
+
+	tirarVirgulas(dividendo, divisor);
+
 	while(utilsDiv.compareTwoString(dividendo, divisor) > 0)
 	{
         tempDiv = menorNumeroDivisivel(dividendo, divisor);
@@ -76,6 +78,27 @@ void Divisora::dividir() {
 	}
 
 	std::cout << result;
+}
+
+void Divisora::tirarVirgulas(std::string &number1, std::string &number2)
+{
+    
+    if(number1.find(',') == -1)
+        number1.insert(number1.end(), ',');
+    if(number2.find(',') == -1)
+        number2.insert(number2.end(), ',');
+
+	std::string posVirgula1 = number1.substr(number1.find(',') + 1, number1.length()); 
+	std::string posVirgula2 = number2.substr(number2.find(',') + 1, number2.length());
+    
+	utilsDiv.matchNumberDigitsAfterComma(posVirgula1, posVirgula2);
+
+	number1.insert(number1.find(','), posVirgula1);
+	number2.insert(number2.find(','), posVirgula2);
+
+    number1 = number1.substr(0, number1.find(','));
+    number2 = number2.substr(0, number2.find(','));
+
 }
 
 std::string Divisora::menorNumeroDivisivel(std::string dividendo, std::string divisor)
