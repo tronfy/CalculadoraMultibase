@@ -14,9 +14,9 @@ public:
     std::string removeTrailingZeroes(std::string str);
 	std::string removeLeadingZeroes(std::string str);
 	std::string colocarZeros(std::string str, int qtdZeros);
+	void matchNumberDigitsAfterComma(std::string &number1, std::string &number2);
 private:
     void matchNumberDigitsBeforeComma(std::string &number1, std::string &number2);
-    void matchNumberDigitsAfterComma(std::string &number1, std::string &number2);
 };
 
 

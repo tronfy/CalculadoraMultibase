@@ -11,7 +11,6 @@ int main() {
         std::cout << "Calculadora de bases\nProjeto II - TopiOO\n" << std::endl;
 
         int base;
-        std::string opString;
 
         std::cout << "Insira a base desejada:";
         std::cin >> base;
@@ -20,17 +19,27 @@ int main() {
             throw "Base invalida";
         }
 
-        std::cout << "Insira uma operacao (ex. 12+34):";
-        std::cin >> opString;
+        std::string fatorX;
+        std::string fatorY;
+        char sinal;
+
+        std::cout << "Insira o primeiro fator: ";
+        std::cin >> fatorX;
+
+        std::cout << "Insira o sinal de operacao: ";
+        std::cin >> sinal;
+
+        std::cout << "Insira o segundo fator: ";
+        std::cin >> fatorY;
 		
-        Operacao operacao(opString, base);
-        std::cout << "Resposta: " << calculator.calculate(operacao);
+        Operacao operacao(fatorX, fatorY, sinal, base);
+        std::cout << "Resposta: " << calculator.calculate(operacao) << std::endl;
 
-//        std::cout << "fatorX: " << operacao.getFatorX() << std::endl;
-//        std::cout << "operador: " << operacao.getOperador() << std::endl;
-//        std::cout << "fatorY: " << operacao.getFatorY() << std::endl;
-
-
+        // std::cout << "sinalX: " << operacao.getSinalX() << std::endl;
+        // std::cout << "fatorX: " << operacao.getFatorX() << std::endl;
+        // std::cout << "operador: " << operacao.getOperador() << std::endl;
+        // std::cout << "sinalX: " << operacao.getSinalY() << std::endl;
+        // std::cout << "fatorY: " << operacao.getFatorY() << std::endl;
 
         return 0;
 

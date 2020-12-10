@@ -14,6 +14,7 @@ private:
     void dividir();
     char acharQuociente(std::string dividendo, std::string divisor);
 	std::string menorNumeroDivisivel(std::string dividendo, std::string divisor);
+	void tirarVirgulas(std::string &number1, std::string &number2);
 };
 
 
