@@ -25,7 +25,7 @@ void Operacao::analisar() {
     std::string fatorY = opString.substr(pos+1);
 
     for (char chr : fatorX) {
-        if(chr == ',')
+        if(chr == ',' || chr == '.')
             continue;
 
         int val = Algarismos::valorDe(chr);
@@ -35,7 +35,7 @@ void Operacao::analisar() {
     }
 
     for (char chr : fatorY) {
-        if(chr == ',')
+        if(chr == ',' || chr == '.')
             continue;
 
         int val = Algarismos::valorDe(chr);

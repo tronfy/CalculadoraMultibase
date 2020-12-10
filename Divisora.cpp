@@ -89,6 +89,8 @@ std::string Divisora::menorNumeroDivisivel(std::string dividendo, std::string di
             return tempDiv;
 	}
 
+    throw "Divisor inválido";
+
 }
 
 char Divisora::acharQuociente(std::string dividendo, std::string divisor) {
@@ -106,4 +108,6 @@ char Divisora::acharQuociente(std::string dividendo, std::string divisor) {
 			return algarismosDiv.caracterDe(i);
 		}
     }
+
+    throw "Quociente inválido";
 }

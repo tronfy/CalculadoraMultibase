@@ -38,6 +38,12 @@ void Utils::matchNumberDigits(std::string &number1, std::string &number2)
     commaPlace1 = number1.find(',');
     commaPlace2 = number2.find(',');
 
+    if (commaPlace1 == -1)
+        commaPlace1 = number1.find('.');
+
+    if (commaPlace2 == -1)
+        commaPlace2 = number2.find('.');
+
     if(commaPlace1 == -1) {
         beforeComma1 = number1;
         afterComma1 = '0';
